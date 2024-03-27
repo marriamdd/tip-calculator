@@ -11,4 +11,10 @@ export const Input = styled.input`
   font-weight: 700;
   padding: 1.2rem;
   margin-bottom: 1.8rem;
+  ::placeholder{
+    color: #00474B;
+text-align: right;
+font-size: 24px;
+font-weight: 700;
+  }
 `;

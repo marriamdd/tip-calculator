@@ -5,10 +5,13 @@ export const Button = styled.button`
   flex-shrink: 0;
   border-radius: 5px;
   background: #00474b;
-
+  cursor: pointer;
   color: #fff;
   text-align: center;
 
   font-size: 2.4rem;
   font-weight: 700;
+  &:hover {
+    background: #26C2AE;
+  }
 `;

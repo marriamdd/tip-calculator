@@ -2,8 +2,18 @@ import { Label } from "../Ui/Label";
 import { Input } from "../Ui/Input";
 import { Button } from "../Ui/Button";
 import styled from "styled-components";
-export default function CountSide() {
-  const btnArray=["5%","10%","15%","25%","50%"]
+import { useState } from "react";
+export default function CountSide({inputValue, setInputValue,count,setCount,setPerson ,person}) {
+  const btnArray = ["5%", "10%", "15%", "25%", "50%"];
+  const handleValue = (event) => {
+    setInputValue(event.target.value);
+  };
+  const handlePerson=(event)=>{
+    setPerson(event.target.value)
+   
+  }
+
+ 
   return (
     <CounterDiv>
       <Form>
@@ -12,15 +22,29 @@ export default function CountSide() {
           {" "}
           <img src="public/images/icon-dollar.svg" alt="" />
         </ImgDiv>
-        <Input type="text" />
+        <Input
+          type="text"
+          placeholder="0"
+          value={inputValue}
+          onChange={handleValue}
+        />
       </Form>
       <Label>Select Tip %</Label>
       <ButtonsContainer>
-      {btnArray.map((item,index)=>(
-       <Button key={index}>{item}</Button>
-      
-      ))}
-        <Input  style={{width:"14.7rem"}} type="text"  placeholder="Custom" />
+        {btnArray.map((item, index) => (
+          <Button
+            key={index}
+            onClick={() => {
+              const total = (inputValue * parseInt(item)) / 100;
+            
+              setCount(total)
+             
+            }}
+          >
+            {item}{" "}
+          </Button>
+        ))}
+        <Input style={{ width: "14.7rem" }} type="text" placeholder="Custom"  />
       </ButtonsContainer>
       <Form>
         <Label>Number of People</Label>
@@ -28,7 +52,7 @@ export default function CountSide() {
           {" "}
           <img src="public/images/icon-person.svg" alt="" />
         </ImgDiv>
-        <Input type="text" />
+        <Input type="text" placeholder="0" onChange={handlePerson}/>
       </Form>
     </CounterDiv>
   );
@@ -58,6 +82,6 @@ const ImgDiv = styled.div`
 const ButtonsContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin-top:2.2rem;
+  margin-top: 2.2rem;
   gap: 2rem;
 `;

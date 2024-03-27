@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Button } from "../Ui/Button";
-export default function ResultSide() {
+import { useState } from "react";
+export default function ResultSide({inputValue, setInputValue ,count, setCount,person ,setPerson}) {
   return (
     <ResultDiv>
       <ResultGraph>
@@ -8,14 +9,14 @@ export default function ResultSide() {
           <span>Tip Amount</span>
           <span>/ person</span>
         </CountType>
-        <CountResult>89</CountResult>
+        <CountResult>{person?`$${count/person}`:`$${count}`}</CountResult>
       </ResultGraph>
       <ResultGraph>
         <CountType>
           <span>Total</span>
           <span>/ person</span>
         </CountType>
-        <CountResult>89</CountResult>
+        <CountResult>{person ? `$${(count + Number(inputValue)) / person}` : `$${count + Number(inputValue)}`}</CountResult>
        
       </ResultGraph>
       <Button style={{width:"28.1rem", height:"4.8rem" ,background:"#26C2AE" ,fontSize: "20px",color:" #00474B" }} >RESET</Button>

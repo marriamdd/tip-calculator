@@ -7,8 +7,12 @@ import styled from "styled-components";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
-
+  const [inputValue, setInputValue] = useState("");
+  const [person,setPerson]=useState(0)
+  const [count,setCount]=useState(0)
+  console.log(person)
+  console.log(inputValue);
+  console.log(count);
   return (
     <>
       <GlobalStyles />
@@ -16,10 +20,10 @@ function App() {
         <img src="public/images/logo.svg" alt="" />
       </Header>
       <Main>
-     <CountSide>
-   
+     <CountSide inputValue={inputValue} setInputValue={setInputValue} count={count} setCount={setCount} setPerson={setPerson} person={person}>
+  
      </CountSide>
-     <ResultSide>
+     <ResultSide inputValue={inputValue} setInputValue={setInputValue}  count={count} setCount={setCount} setPerson={setPerson} person={person} >
 
      </ResultSide>
       </Main>
