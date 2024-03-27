@@ -4,5 +4,8 @@ export const Input = styled.input`
   height: 48px;
   flex-shrink: 0;
   border-radius: 5px;
-background: #F3F9FA;
+  background: #f3f9fa;
+  text-align: right;
+  font-size: 24px;
+  padding: 1.2rem;
 `;

@@ -17,5 +17,6 @@ const Form=styled.form`
   display: flex;
   flex-direction: column;
   padding: 6.2rem 3.2rem ;
+  gap: 0.6rem;
 
 `
