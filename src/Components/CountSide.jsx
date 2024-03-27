@@ -20,7 +20,16 @@ export default function CountSide() {
        <Button key={index}>{item}</Button>
       
       ))}
+        <Input  style={{width:"14.7rem"}} type="text"  placeholder="Custom" />
       </ButtonsContainer>
+      <Form>
+        <Label>Number of People</Label>
+        <ImgDiv>
+          {" "}
+          <img src="public/images/icon-person.svg" alt="" />
+        </ImgDiv>
+        <Input type="text" />
+      </Form>
     </CounterDiv>
   );
 }
@@ -32,7 +41,7 @@ const Form = styled.form`
   gap: 0.6rem;
 `;
 const CounterDiv = styled.div`
-  padding: 6.2rem 3.2rem;
+  padding: 2rem 3.2rem;
 `;
 
 const ImgDiv = styled.div`

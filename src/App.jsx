@@ -30,7 +30,7 @@ function App() {
 const Header = styled.header`
   display: flex;
   width: 375px;
-  padding-top: 5rem;
+  padding-top: 4.5rem;
   padding-bottom: 4rem;
   flex-direction: column;
   justify-content: flex-end;
