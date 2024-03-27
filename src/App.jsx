@@ -41,7 +41,9 @@ const Header = styled.header`
 const Main = styled.main`
   width: 375px;
   height: 789px;
-  flex-shrink: 0;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
   border-radius: 25px 25px 0px 0px;
   background: #fff;
   box-shadow: 0px 32px 43px 0px rgba(79, 166, 175, 0.2);
