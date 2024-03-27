@@ -14,4 +14,7 @@ export const Button = styled.button`
   &:hover {
     background: #26C2AE;
   }
+@media (min-width:740px) {
+    width: 13rem;  
+}
 `;

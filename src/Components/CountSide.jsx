@@ -3,26 +3,34 @@ import { Input } from "../Ui/Input";
 import { Button } from "../Ui/Button";
 import styled from "styled-components";
 import { useState } from "react";
-export default function CountSide({inputValue, setInputValue,count,setCount,setPerson ,person}) {
+export default function CountSide({
+  inputValue,
+  setInputValue,
+
+  setCount,
+  setPerson,
+}) {
   const btnArray = ["5%", "10%", "15%", "25%", "50%"];
   const handleValue = (event) => {
     setInputValue(event.target.value);
   };
-  const handlePerson=(event)=>{
-    setPerson(event.target.value)
-   
-  }
+  const handlePerson = (event) => {
+    setPerson(event.target.value);
+  };
+  const handelCustom = (event) => {
+    setCount(event.target.value);
+  };
 
- 
   return (
     <CounterDiv>
       <Form>
-        <Label>Bill</Label>
+        <Label htmlFor="bill">Bill</Label>
         <ImgDiv>
           {" "}
           <img src="public/images/icon-dollar.svg" alt="" />
         </ImgDiv>
         <Input
+          id="bill"
           type="text"
           placeholder="0"
           value={inputValue}
@@ -36,15 +44,19 @@ export default function CountSide({inputValue, setInputValue,count,setCount,setP
             key={index}
             onClick={() => {
               const total = (inputValue * parseInt(item)) / 100;
-            
-              setCount(total)
-             
+
+              setCount(total);
             }}
           >
             {item}{" "}
           </Button>
         ))}
-        <Input style={{ width: "14.7rem" }} type="text" placeholder="Custom"  />
+        <Input
+          style={{ width: "14.7rem" ,textAlign:"center" ,cursor:"pointer"}}
+          type="text"
+          placeholder="Custom"
+          onChange={handelCustom}
+        />
       </ButtonsContainer>
       <Form>
         <Label>Number of People</Label>
@@ -52,7 +64,7 @@ export default function CountSide({inputValue, setInputValue,count,setCount,setP
           {" "}
           <img src="public/images/icon-person.svg" alt="" />
         </ImgDiv>
-        <Input type="text" placeholder="0" onChange={handlePerson}/>
+        <Input type="text" placeholder="0" onChange={handlePerson} />
       </Form>
     </CounterDiv>
   );
@@ -61,11 +73,15 @@ export default function CountSide({inputValue, setInputValue,count,setCount,setP
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-
   gap: 0.6rem;
+  @media (min-width: 740px) {
+    min-width: 379px;
+  }
 `;
 const CounterDiv = styled.div`
   padding: 2rem 3.2rem;
+  @media (min-width: 740px) {
+  }
 `;
 
 const ImgDiv = styled.div`
@@ -84,4 +100,7 @@ const ButtonsContainer = styled.div`
   grid-template-columns: 1fr 1fr;
   margin-top: 2.2rem;
   gap: 2rem;
+  @media (min-width: 740px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 `;
