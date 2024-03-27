@@ -16,7 +16,7 @@ export  const GlobalStyles = createGlobalStyle`
 
   body {
 
-    background: #F9FAFD;
+    background: #C5E4E7;
     min-height: 100vh;
     display: flex;
     justify-content: center;
