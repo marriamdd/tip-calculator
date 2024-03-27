@@ -5,7 +5,6 @@ import ResultSide from "./Components/ResultSide";
 import { GlobalStyles } from "./Globals/Globals";
 import styled from "styled-components";
 import "./App.css";
-
 function App() {
   const [inputValue, setInputValue] = useState("");
   console.log(inputValue);
@@ -22,6 +21,8 @@ function App() {
       </Header>
       <Main>
         <CountSide
+        person={person}
+        count={count}
           inputValue={inputValue}
           setInputValue={setInputValue}
           setCount={setCount}
@@ -34,7 +35,9 @@ function App() {
           setCount={setCount}
           setPerson={setPerson}
           person={person}
-        ></ResultSide>
+        >
+
+        </ResultSide>
       </Main>
     </>
   );
@@ -65,12 +68,11 @@ const Main = styled.main`
   box-shadow: 0px 32px 43px 0px rgba(79, 166, 175, 0.2);
   @media (min-width: 740px) {
     width: 940px;
-height: 481px;
-flex-shrink: 0;
+    height: 481px;
+    flex-shrink: 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
     border-radius: 25px;
-  
   }
 `;
 

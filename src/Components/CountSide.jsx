@@ -4,9 +4,10 @@ import { Button } from "../Ui/Button";
 import styled from "styled-components";
 import { useState } from "react";
 export default function CountSide({
+  count,
+  person,
   inputValue,
   setInputValue,
-
   setCount,
   setPerson,
 }) {
@@ -54,6 +55,7 @@ export default function CountSide({
         <Input
           style={{ width: "14.7rem" ,textAlign:"center" ,cursor:"pointer"}}
           type="text"
+          value={count}
           placeholder="Custom"
           onChange={handelCustom}
         />
@@ -64,7 +66,7 @@ export default function CountSide({
           {" "}
           <img src="public/images/icon-person.svg" alt="" />
         </ImgDiv>
-        <Input type="text" placeholder="0" onChange={handlePerson} />
+        <Input type="text" placeholder="0" onChange={handlePerson} value={person} />
       </Form>
     </CounterDiv>
   );
