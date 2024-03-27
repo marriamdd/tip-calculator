@@ -8,11 +8,15 @@ import "./App.css";
 function App() {
   const [inputValue, setInputValue] = useState("");
   console.log(inputValue);
-  const [person, setPerson] = useState("");
+  const [person, setPerson] = useState(1);
   console.log(person);
   const [count, setCount] = useState("");
   console.log(count);
+  const [custom,setCustom]=useState("")
+  console.log(custom);
 
+const [customPercent,setCustomPercent]=useState("")
+console.log(customPercent)
   return (
     <>
       <GlobalStyles />
@@ -27,6 +31,10 @@ function App() {
           setInputValue={setInputValue}
           setCount={setCount}
           setPerson={setPerson}
+          custom={custom}
+          setCustom={setCustom}
+          customPercent={customPercent}
+          setCustomPercent={setCustomPercent}
         ></CountSide>
         <ResultSide
           inputValue={inputValue}
@@ -35,6 +43,10 @@ function App() {
           setCount={setCount}
           setPerson={setPerson}
           person={person}
+          custom={custom}
+          setCustom={setCustom}
+          customPercent={customPercent}
+          setCustomPercent={setCustomPercent}
         >
 
         </ResultSide>

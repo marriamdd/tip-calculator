@@ -9,19 +9,39 @@ export default function CountSide({
   inputValue,
   setInputValue,
   setCount,
+  custom,
+  setCustom,
   setPerson,
+  customPercent,
+  setCustomPercent
 }) {
+  const [error, setError] = useState("");
   const btnArray = ["5%", "10%", "15%", "25%", "50%"];
   const handleValue = (event) => {
+    // const input = event.target.value;
+    // const pattern = /^[09]*$/;
+    // if (pattern.test(input)) {
+    //   setInputValue(event.target.value);
+    // } else {
+    // }
     setInputValue(event.target.value);
   };
   const handlePerson = (event) => {
     setPerson(event.target.value);
   };
-  const handelCustom = (event) => {
-    setCount(event.target.value);
-  };
+  // const handelCustom = (event) => {
+  //   setCount(event.target.value);
+  // };
 
+  const handelCustom = (event) => {
+    const customm = parseFloat(event.target.value);
+   
+      const percent = (customm * inputValue) / 100;
+
+      setCustom(customm);
+      setCustomPercent(percent)
+  
+  };
   return (
     <CounterDiv>
       <Form>
@@ -53,9 +73,9 @@ export default function CountSide({
           </Button>
         ))}
         <Input
-          style={{ width: "14.7rem" ,textAlign:"center" ,cursor:"pointer"}}
+          style={{ width: "14.7rem", textAlign: "center", cursor: "pointer" }}
           type="text"
-          value={count}
+          value={custom}
           placeholder="Custom"
           onChange={handelCustom}
         />
@@ -66,7 +86,12 @@ export default function CountSide({
           {" "}
           <img src="public/images/icon-person.svg" alt="" />
         </ImgDiv>
-        <Input type="text" placeholder="0" onChange={handlePerson} value={person} />
+        <Input
+          type="text"
+          placeholder="0"
+          onChange={handlePerson}
+          value={person}
+        />
       </Form>
     </CounterDiv>
   );

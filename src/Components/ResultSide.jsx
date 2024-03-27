@@ -8,6 +8,10 @@ export default function ResultSide({
   setCount,
   person,
   setPerson,
+  custom,
+  setCustom,
+  customPercent,
+  setCustomPercent
 }) {
   return (
     <ResultDiv>
@@ -17,9 +21,14 @@ export default function ResultSide({
           <span>/ person</span>
         </CountType>
         <CountResult>
-          {person
+          {/* {person
             ? `$${(Number(count) / person).toFixed(2)}`
-            : `$${Number(count).toFixed(2)}`}
+            : `$${Number(count).toFixed(2)}`} */}
+
+{customPercent
+    ? `$${(Number(customPercent) / person).toFixed(2)}`
+    : `$${(Number(count) / person).toFixed(2)}`}
+
         </CountResult>
       </ResultGraph>
       <ResultGraph>
@@ -28,9 +37,9 @@ export default function ResultSide({
           <span>/ person</span>
         </CountType>
         <CountResult>
-          {person
-            ? `$${((Number(count) + Number(inputValue)) / person).toFixed(2)}`
-            : `$${(Number(count) + Number(inputValue)).toFixed(2)}`}
+{customPercent
+    ? `$${(Number(customPercent) + Number(inputValue) / person).toFixed(2)}`
+    : `$${(Number(count)+ Number(inputValue) / person).toFixed(2)}`}
         </CountResult>
       </ResultGraph>
       <Button
