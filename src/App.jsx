@@ -21,7 +21,7 @@ console.log(customPercent)
     <>
       <GlobalStyles />
       <Header>
-        <img src="public/images/logo.svg" alt="" />
+        <img src="public/images/logo.svg" alt="splitter" />
       </Header>
       <Main>
         <CountSide
