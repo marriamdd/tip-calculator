@@ -56,7 +56,7 @@ export default function CountSide({
         )}
         <ImgDiv>
           {" "}
-          <img src="public/images/icon-dollar.svg" alt="dollar icon" />
+          <img src="/images/icon-dollar.svg" alt="dollar icon" />
         </ImgDiv>
 
         <Input
@@ -98,7 +98,7 @@ export default function CountSide({
         <Label>Number of People</Label>
         <ImgDiv>
           {" "}
-          <img src="public/images/icon-person.svg" alt="person icon" />
+          <img src="/images/icon-person.svg" alt="person icon" />
         </ImgDiv>
         <Input
           type="number"
