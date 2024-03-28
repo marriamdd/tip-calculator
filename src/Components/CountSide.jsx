@@ -9,28 +9,14 @@ export default function CountSide({
   inputValue,
   setInputValue,
   setCount,
-  custom,
-  setCustom,
+
   setPerson,
-  customPercent,
-  setCustomPercent,
+
   setButtonBack,
   buttonBack,
-}){
-
-
-
-
+}) {
   const [error, setError] = useState("");
   const btnArray = ["5%", "10%", "15%", "25%", "50%"];
-
-
-  const handleMouseOutError = (event) => {
-    const input = event.target.value;
-    if (input === "0" || input === "") {
-      setError("Can’t be zero");
-    }
-  };
 
   const handleValue = (event) => {
     const input = event.target.value;
@@ -50,12 +36,11 @@ export default function CountSide({
     setPerson(event.target.value);
   };
   const handelCustom = (event) => {
-    const customm = parseInt(event.target.value);
-    if (isNaN(customm)) {
-      setCustom("0");
+    const customInput = parseInt(event.target.value);
+    if (isNaN(customInput)) {
+      setCount("");
     } else {
-      const total = (inputValue * customm) / 100;
-      setCustom(customm);
+      const total = customInput;
       setCount(total);
     }
   };
@@ -89,28 +74,22 @@ export default function CountSide({
           <Button
             key={index}
             onClick={(event) => {
-             
-           console.log(item)
-              const total = (inputValue * parseInt(item)) / 100;
-            
+              const total = parseInt(item);
+
               setCount(total);
-              setButtonBack(item); 
+              setButtonBack(item);
             }}
-           
-           
-          style={{
-            background: buttonBack === item ? "#9FE8DF" : "",
-          }}
+            style={{
+              background: buttonBack === item ? "#9FE8DF" : "",
+            }}
           >
             {item}{" "}
-           
           </Button>
-          
         ))}
         <Input
           className="customInput"
           type="text"
-          value={custom}
+          value={count}
           placeholder="Custom"
           onChange={handelCustom}
         />

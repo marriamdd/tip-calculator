@@ -25,9 +25,8 @@ export default function ResultSide({
         <CountResult>
        
 
-{custom
-    ? `$${(Number(custom) / person).toFixed(2)}`
-    : `$${(Number(count) / person).toFixed(2)}`}
+{
+    `$${(Number(inputValue*count/100) / person).toFixed(2)}`}
 
         </CountResult>
       </ResultGraph>
@@ -37,9 +36,9 @@ export default function ResultSide({
           <span>/ person</span>
         </CountType>
         <CountResult>
-{custom
-    ? `$${(Number(custom) + Number(inputValue) / person).toFixed(2)}`
-    : `$${(Number(count)+ Number(inputValue) / person).toFixed(2)}`}
+{
+
+     `$${(Number(inputValue*count/100)+ Number(inputValue) / person).toFixed(2)}`}
         </CountResult>
       </ResultGraph>
       <Button
@@ -48,7 +47,7 @@ export default function ResultSide({
           setInputValue("");
           setCount("");
           setPerson(1);
-          setCustom("")
+    
           setButtonBack(false)
         }}
       >
