@@ -14,7 +14,7 @@ function App() {
   console.log(count);
   const [custom,setCustom]=useState("")
   console.log(custom);
-
+  const [buttonBack,setButtonBack]=useState(true);
 const [customPercent,setCustomPercent]=useState("")
 console.log(customPercent)
   return (
@@ -35,6 +35,8 @@ console.log(customPercent)
           setCustom={setCustom}
           customPercent={customPercent}
           setCustomPercent={setCustomPercent}
+          buttonBack={buttonBack}
+          setButtonBack={setButtonBack}
         ></CountSide>
         <ResultSide
           inputValue={inputValue}
@@ -47,6 +49,8 @@ console.log(customPercent)
           setCustom={setCustom}
           customPercent={customPercent}
           setCustomPercent={setCustomPercent}
+          buttonBack={buttonBack}
+          setButtonBack={setButtonBack}
         >
 
         </ResultSide>
@@ -72,6 +76,7 @@ const Header = styled.header`
 const Main = styled.main`
   width: 375px;
   height: 789px;
+
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -15,6 +15,7 @@ export const Button = styled.button`
     background: #26C2AE;
   }
 @media (min-width:740px) {
-    width: 13rem;  
+    width: 13rem; 
+    margin-inline:0; 
 }
 `;

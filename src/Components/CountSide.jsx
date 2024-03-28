@@ -13,47 +13,72 @@ export default function CountSide({
   setCustom,
   setPerson,
   customPercent,
-  setCustomPercent
-}) {
+  setCustomPercent,
+  setButtonBack,
+  buttonBack,
+}){
+
+
+
+
   const [error, setError] = useState("");
   const btnArray = ["5%", "10%", "15%", "25%", "50%"];
-  const handleValue = (event) => {
-    // const input = event.target.value;
-    // const pattern = /^[09]*$/;
-    // if (pattern.test(input)) {
-    //   setInputValue(event.target.value);
-    // } else {
-    // }
-    setInputValue(event.target.value);
+
+
+  const handleMouseOutError = (event) => {
+    const input = event.target.value;
+    if (input === "0" || input === "") {
+      setError("Can’t be zero");
+    }
   };
+
+  const handleValue = (event) => {
+    const input = event.target.value;
+    const pattern = /^[0-9]*$/;
+    if (pattern.test(input)) {
+      setInputValue(event.target.value);
+      if (input === "0" || input === "") {
+        setError("Can’t be zero");
+        setInputValue("");
+      } else {
+        setError("");
+      }
+    }
+  };
+
   const handlePerson = (event) => {
     setPerson(event.target.value);
   };
-  // const handelCustom = (event) => {
-  //   setCount(event.target.value);
-  // };
-
   const handelCustom = (event) => {
-    const customm = parseFloat(event.target.value);
-   
-      const percent = (customm * inputValue) / 100;
-
+    const customm = parseInt(event.target.value);
+    if (isNaN(customm)) {
+      setCustom("0");
+    } else {
+      const total = (inputValue * customm) / 100;
       setCustom(customm);
-      setCustomPercent(percent)
-  
+      setCount(total);
+    }
   };
+
   return (
     <CounterDiv>
       <Form>
         <Label htmlFor="bill">Bill</Label>
+        {error ? (
+          <ErrorMessage>{error}</ErrorMessage>
+        ) : (
+          <ErrorMessage></ErrorMessage>
+        )}
         <ImgDiv>
           {" "}
           <img src="public/images/icon-dollar.svg" alt="" />
         </ImgDiv>
+
         <Input
           id="bill"
           type="text"
           placeholder="0"
+          required
           value={inputValue}
           onChange={handleValue}
         />
@@ -63,17 +88,27 @@ export default function CountSide({
         {btnArray.map((item, index) => (
           <Button
             key={index}
-            onClick={() => {
+            onClick={(event) => {
+             
+           console.log(item)
               const total = (inputValue * parseInt(item)) / 100;
-
+            
               setCount(total);
+              setButtonBack(item); 
             }}
+           
+           
+          style={{
+            background: buttonBack === item ? "#9FE8DF" : "",
+          }}
           >
             {item}{" "}
+           
           </Button>
+          
         ))}
         <Input
-          style={{ width: "14.7rem", textAlign: "center", cursor: "pointer" }}
+          className="customInput"
           type="text"
           value={custom}
           placeholder="Custom"
@@ -87,7 +122,8 @@ export default function CountSide({
           <img src="public/images/icon-person.svg" alt="" />
         </ImgDiv>
         <Input
-          type="text"
+          type="number"
+          min="1"
           placeholder="0"
           onChange={handlePerson}
           value={person}
@@ -96,18 +132,31 @@ export default function CountSide({
     </CounterDiv>
   );
 }
-
+const ErrorMessage = styled.p`
+  display: flex;
+  justify-content: end;
+  color: #e17457;
+  text-align: right;
+  font-size: 16px;
+  font-weight: 700;
+  height: 1.5rem;
+  width: 300px;
+  @media (min-width: 740px) {
+    min-width: 370px;
+  }
+`;
 const Form = styled.form`
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
+
   @media (min-width: 740px) {
     min-width: 379px;
   }
 `;
 const CounterDiv = styled.div`
-  padding: 2rem 3.2rem;
   @media (min-width: 740px) {
+    padding: 2rem 3.2rem;
   }
 `;
 
