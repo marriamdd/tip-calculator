@@ -1,22 +1,22 @@
 import { useState } from "react";
-import { Button } from "./Ui/Button";
+
 import CountSide from "./Components/CountSide";
 import ResultSide from "./Components/ResultSide";
 import { GlobalStyles } from "./Globals/Globals";
 import styled from "styled-components";
-import "./App.css";
+
 function App() {
   const [inputValue, setInputValue] = useState("");
-  console.log(inputValue);
+
   const [person, setPerson] = useState(1);
-  console.log(person);
+
   const [count, setCount] = useState("");
-  console.log(count);
-  const [custom,setCustom]=useState("")
-  console.log(custom);
-  const [buttonBack,setButtonBack]=useState(true);
-const [customPercent,setCustomPercent]=useState("")
-console.log(customPercent)
+
+  const [custom, setCustom] = useState("");
+
+  const [buttonBack, setButtonBack] = useState(true);
+  const [customPercent, setCustomPercent] = useState("");
+
   return (
     <>
       <GlobalStyles />
@@ -25,8 +25,8 @@ console.log(customPercent)
       </Header>
       <Main>
         <CountSide
-        person={person}
-        count={count}
+          person={person}
+          count={count}
           inputValue={inputValue}
           setInputValue={setInputValue}
           setCount={setCount}
@@ -51,9 +51,7 @@ console.log(customPercent)
           setCustomPercent={setCustomPercent}
           buttonBack={buttonBack}
           setButtonBack={setButtonBack}
-        >
-
-        </ResultSide>
+        ></ResultSide>
       </Main>
     </>
   );
@@ -61,7 +59,7 @@ console.log(customPercent)
 
 const Header = styled.header`
   display: flex;
-  width: 375px;
+  width: 37.5rem;
   padding-top: 4.5rem;
   padding-bottom: 4rem;
   flex-direction: column;
@@ -74,22 +72,22 @@ const Header = styled.header`
 `;
 
 const Main = styled.main`
-  width: 375px;
-  height: 789px;
+  width: 37.5rem;
+  height: 78.9rem;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 25px 25px 0px 0px;
+  border-radius: 2.5rem 2.5rem 0rem 0rem;
   background: #fff;
-  box-shadow: 0px 32px 43px 0px rgba(79, 166, 175, 0.2);
+  box-shadow: 0px 3.3rem 4.3rem 0rem rgba(79, 166, 175, 0.2);
   @media (min-width: 740px) {
-    width: 940px;
-    height: 481px;
+    width: 94rem;
+    height: 48.1rem;
     flex-shrink: 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    border-radius: 25px;
+    border-radius: 2.5rem;
   }
 `;
 
